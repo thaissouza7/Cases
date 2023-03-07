@@ -4,42 +4,59 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
     <title>Pontos FRONT</title>
 </head>
 
 <body>
-    <h1>Lista de pontos</h1>
-    <button id="btn-todos-pontos">Mostrar todos os pontos</button>
-    <ul id="pontos">
-        <li>Carregando...</li>
-    </ul>
-    <h1>Buscar ponto</h1>
-    <form id="form-buscar-ponto">
-        <label for="input-id-ponto">ID do ponto:</label>
-        <input type="text" id="input-id-ponto" name="id-ponto" />
-        <button type="submit">Buscar</button>
-    </form>
-    <ul id="ponto">
-        <li>Insira o ID do ponto acima e clique em "Buscar".</li>
-    </ul>
+    <!-- Lista de ponto -->
+    <div class="listaDePonto">
+        <h1>Lista de Ponto</h1>
+        <div class="container1">
+            <button id="btn-todos-pontos">Mostrar todos os pontos</button>
+            <div class="pontosFunc">
+                <ul id="pontos">
+                    <li>Carregando...</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-    <h1>Inserir ponto</h1>
-    <form id="form-inserir-ponto">
-        <label for="input-funcionario">Funcionário:</label>
-        <input type="text" id="input-funcionario" name="funcionario" />
-        <label for="input-dia">Dia:</label>
-        <input type="text" id="input-dia" name="dia" />
-        <label for="input-entrada">Entrada:</label>
-        <input type="text" id="input-entrada" name="entrada" />
-        <label for="input-saida">Saída:</label>
-        <input type="text" id="input-saida" name="saida" />
-        <button type="submit">Inserir</button>
-    </form>
-    <div id="mensagem"></div>
+    <!-- Buscar ponto -->
+    <div class="buscarPonto">
+        <h1>Buscar ponto</h1>
+        <form id="form-buscar-ponto">
+            <label for="input-id-ponto">ID do ponto:</label>
+            <input type="text" id="input-id-ponto" name="id-ponto" />
+            <button type="submit">Buscar</button>
+        </form>
+        <ul id="ponto">
+            <li>Insira o ID do ponto acima e clique em "Buscar".</li>
+        </ul>
+    </div>
+
+    <!-- Inserir ponto -->
+    <div class="inserirPonto">
+        <h1>Inserir ponto</h1>
+        <div class="form">
+            <form class="formInserir" id="form-inserir-ponto">
+                <input type="text" id="input-funcionario" name="funcionario" placeholder="Funcionario"/>
+                <br>
+                <input type="text" id="input-dia" name="dia" placeholder="Dia"/>
+                <br>
+                <input type="text" id="input-entrada" name="entrada" placeholder="Entrada"/>
+                <br>
+                <input type="text" id="input-saida" name="saida" placeholder="Saida" />
+                <br>
+                <button type="submit">Inserir</button>
+            </form>
+        </div>
+        <div id="mensagem"></div>
+    </div>
 
 
 
-    <script>
+    <!-- <script>
         const ulPontos = document.getElementById("pontos");
         const btnTodosPontos = document.getElementById("btn-todos-pontos");
         const formBuscarPonto = document.getElementById("form-buscar-ponto");
@@ -114,7 +131,7 @@
     
 
 
-    </script>
+    </script> -->
 </body>
 
 </html>

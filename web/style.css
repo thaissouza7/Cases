@@ -1,0 +1,75 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.listaDePonto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: solid 2px black;
+    margin: 10px;
+    width: 15rem;
+}
+
+.buscarPonto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: solid 2px black;
+    margin: 10px;
+    width: 15rem;
+}
+
+.inserirPonto{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    /* position: absolute; */
+    flex-wrap: wrap;
+    border: solid 2px black;
+    margin: 10px;
+    width: 15rem;
+}
+
+.formInserir{
+    display: inline-block;
+    position: relative;
+}
+
+.formInserir input{
+    text-align: center;
+    margin: 6px;
+    width: 200px;
+    height: 30px;
+    border-radius: 50px;
+    border: 1px solid;
+}
+
+.formInserir button{
+    margin-bottom: 6px;
+    border-radius: 50px;
+    width: 90px;
+    height: 30px;
+    border: none;
+    background-color: rgb(90, 13, 90);
+    color: white;
+}
+
+.formInserir button:hover{
+    background-color: black;
+    
+}
