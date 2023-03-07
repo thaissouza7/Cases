@@ -21,11 +21,13 @@ body{
     border: solid 2px black;
     margin: 10px;
     width: 15rem;
+    text-align: center;
 }
 
 .buscarPonto{
     display: flex;
     flex-direction: column;
+    text-align: center;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
@@ -34,11 +36,19 @@ body{
     width: 15rem;
 }
 
+input{
+    text-align: center;
+    margin: 6px;
+    width: 200px;
+    height: 30px;
+    border-radius: 50px;
+    border: 1px solid;
+}
+
 .inserirPonto{
     display: flex;
     text-align: center;
     flex-direction: column;
-    /* position: absolute; */
     flex-wrap: wrap;
     border: solid 2px black;
     margin: 10px;
@@ -50,16 +60,12 @@ body{
     position: relative;
 }
 
-.formInserir input{
-    text-align: center;
-    margin: 6px;
-    width: 200px;
-    height: 30px;
-    border-radius: 50px;
-    border: 1px solid;
+.form-buscar-ponto{
+    display: inline-block;
+    position: relative;
 }
 
-.formInserir button{
+button{
     margin-bottom: 6px;
     border-radius: 50px;
     width: 90px;
@@ -69,7 +75,6 @@ body{
     color: white;
 }
 
-.formInserir button:hover{
+button:hover{
     background-color: black;
-    
 }
