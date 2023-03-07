@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pontos FRONT</title>
+</head>
+
+<body>
+    <h1>Lista de pontos</h1>
+    <button id="btn-todos-pontos">Mostrar todos os pontos</button>
+    <ul id="pontos">
+        <li>Carregando...</li>
+    </ul>
+    <h1>Buscar ponto</h1>
+    <form id="form-buscar-ponto">
+        <label for="input-id-ponto">ID do ponto:</label>
+        <input type="text" id="input-id-ponto" name="id-ponto" />
+        <button type="submit">Buscar</button>
+    </form>
+    <ul id="ponto">
+        <li>Insira o ID do ponto acima e clique em "Buscar".</li>
+    </ul>
+
+    <h1>Inserir ponto</h1>
+    <form id="form-inserir-ponto">
+        <label for="input-funcionario">Funcionário:</label>
+        <input type="text" id="input-funcionario" name="funcionario" />
+        <label for="input-dia">Dia:</label>
+        <input type="text" id="input-dia" name="dia" />
+        <label for="input-entrada">Entrada:</label>
+        <input type="text" id="input-entrada" name="entrada" />
+        <label for="input-saida">Saída:</label>
+        <input type="text" id="input-saida" name="saida" />
+        <button type="submit">Inserir</button>
+    </form>
+    <div id="mensagem"></div>
+
+
+
+    <script>
+        const ulPontos = document.getElementById("pontos");
+        const btnTodosPontos = document.getElementById("btn-todos-pontos");
+        const formBuscarPonto = document.getElementById("form-buscar-ponto");
+        const inputIdPonto = document.getElementById("input-id-ponto");
+        const ulPonto = document.getElementById("ponto");
+
+        btnTodosPontos.addEventListener("click", () => {
+            fetch("http://localhost:3000/Pontos")
+                .then((response) => response.json())
+                .then((data) => {
+                    ulPontos.innerHTML = "";
+                    data.forEach((Ponto) => {
+                        const li = document.createElement("li");
+                        li.innerText = `ID: ${Ponto.id}
+                Funcionário: ${Ponto.funcionario}
+                Data: ${Ponto.dia}
+                Entrada: ${Ponto.entrada}
+                Saída: ${Ponto.saida}`;
+                        ulPontos.appendChild(li);
+                    });
+                })
+                .catch((error) => {
+                    console.error(error);
+                    ulPontos.innerHTML = "Erro ao carregar pontos.";
+                });
+        });
+
+        formBuscarPonto.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const idPonto = inputIdPonto.value;
+            fetch(`http://localhost:3000/Ponto/${idPonto}`)
+                .then((response) => response.json())
+                .then((Ponto) => {
+                    if (Ponto.id) {
+                        ulPonto.innerHTML = `
+                <li>ID: ${Ponto.id}</li>
+                <li>Funcionário: ${Ponto.funcionario}</li>
+                <li>Data: ${Ponto.dia}</li>
+                <li>Entrada: ${Ponto.entrada}</li>
+                <li>Saída: ${Ponto.saida}</li>
+              `;
+                    } else {
+                        ulPonto.innerHTML = "Ponto não encontrado.";
+                    }
+                })
+                .catch((error) => {
+                    console.error(error);
+                    ulPonto.innerHTML = "Erro ao buscar ponto.";
+                });
+        });
+        const formInserirPonto = document.getElementById("form-inserir-ponto");
+        const inputFuncionario = document.getElementById("input-funcionario");
+        const inputDia = document.getElementById("input-dia");
+        const inputEntrada = document.getElementById("input-entrada");
+        const inputSaida = document.getElementById("input-saida");
+        const divMensagem = document.getElementById("mensagem");
+
+        formInserirPonto.addEventListener("submit", (event) => {
+            const funcionario = inputFuncionario.value;
+            const dia = inputDia.value;
+            const entrada = inputEntrada.value;
+            const saida = inputSaida.value;
+            const novoPonto = { funcionario, dia, entrada, saida };
+
+            fetch("http://localhost:3000/Ponto", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(novoPonto),
+            })
+
+        })
+    
+
+
+    </script>
+</body>
+
+</html>
