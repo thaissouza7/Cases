@@ -1,5 +1,6 @@
 import { openDb } from '../configDB.js';
 
+
 export async function createTable() {
   openDb().then(db => {
     db.exec('CREATE TABLE IF NOT EXISTS Ponto (id INTEGER PRIMARY KEY, funcionario TEXT, dia DATE NOT NULL, entrada TIME DEFAULT NULL, saida TIME DEFAULT NULL)')
@@ -42,25 +43,32 @@ export async function insertPonto(req, res) {
   })
 }
 
-export async function updatePonto(req, res) {
-  let Ponto = req.body;
-  openDb().then(db => {
-    db.run('UPDATE Ponto SET funcionario=?, dia=?, entrada=?, saida=? WHERE id=?', [Ponto.funcionario, Ponto.dia, Ponto.entrada, Ponto.saida, Ponto.id]);
-  }).then(() => {
-    console.log('Registro atualizado com sucesso');
-    return true;
-  })
-    .catch(err => {
-      console.error(err);
-      return false;
-    });
-  res.json({
-    "statusCoode": 200
-  })
-}
+
+export const updatePonto = async (req, res) => {
+  try {
+    const db = await openDb();
+    const id = parseInt(req.params.id);
+    const { funcionario, dia, entrada, saida } = req.body;
+
+    // verifica se o ponto existe
+    const pontoExiste = await db.get('SELECT * FROM Ponto WHERE id = ?', [id]);
+    if (!pontoExiste) {
+      return res.status(404).json({ mensagem: "Ponto não encontrado" });
+    }
+
+    // atualiza o ponto na base de dados
+    await db.run('UPDATE Ponto SET funcionario = ?, dia = ?, entrada = ?, saida = ? WHERE id = ?', [funcionario, dia, entrada, saida, id]);
+
+    res.status(200).json({ mensagem: "Ponto atualizado com sucesso" });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).json({ mensagem: "Erro ao atualizar o ponto" });
+  }
+};
+
 
 export async function deletePonto(req, res) {
-  let id = req.body.id
+  let id = req.params.id
   openDb().then(db => {
     db.get('DELETE from Ponto WHERE id=?', [id])
   });

@@ -1,27 +1,35 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
     <link rel="stylesheet" href="style.css">
-    <title>Pontos FRONT</title>
 </head>
-
 <body>
+   
+    <header >
+        <img src="./logo.png" alt="">
+          <h3> &nbsp;  Registrador de ponto</h3>
+      </header>
+    
+        
+
+    <div class="containerPai">
     <!-- Lista de ponto -->
     <div class="listaDePonto">
         <h1>Lista de Ponto</h1>
-        <div class="container1">
             <button id="btn-todos-pontos">Mostrar</button>
             <div class="pontosFunc">
                 <ul id="pontos">
                     <li>Carregando...</li>
                 </ul>
             </div>
-        </div>
+        
     </div>
-
+    
     <!-- Buscar ponto -->
     <div class="buscarPonto">
         <h1>Buscar ponto</h1>
@@ -34,7 +42,7 @@
             <li>Insira o ID do ponto acima e clique em "Buscar".</li>
         </ul>
     </div>
-
+    
     <!-- Inserir ponto -->
     <div class="inserirPonto">
         <h1>Inserir ponto</h1>
@@ -53,85 +61,42 @@
         </div>
         <div id="mensagem"></div>
     </div>
+        
+        <!-- Atualizar ponto -->
+       <div class="atualizarPonto">
+        <div class="form">
+            <h1>Atualizar ponto</h1>
+            <form class="formAtualizar" id="form-atualizar-ponto">
+                <input type="number" id="input-id-ponto-atualizar" name="id-ponto-atualizar" />
+                <input type="text" id="input-funcionario-atualizar" name="funcionario-atualizar" placeholder="Funcionario"/>
+                <br>
+                <input type="text" id="input-dia-atualizar" name="dia-atualizar" placeholder="Dia"/>
+                <br>
+                <input type="text" id="input-entrada-atualizar" name="entrada-atualizar" placeholder="Entrada"/>
+                <br>
+                <input type="text" id="input-saida-atualizar" name="saida-atualizar" placeholder="Saida" />
+                <br>
+                <button type="submit">Atualizar</button>
+                <div id="mensagem-atualizar"></div>
+            </form>
+        </div>
+    </div>
 
+        <div class="excluirPonto">
+            <h1>Excluir ponto</h1>
+            <div class="form">
+              <form class="formExcluir" id="form-excluir-ponto">
+                <input type="number" id="input-id-ponto-excluir" name="id-ponto-excluir" />
+                <button type="submit">Excluir</button>
+            </form>
+            </div>
+            <div id="mensagem-excluir"></div>
+        </div>
+    </div>
 
-
-    <!-- <script>
-        const ulPontos = document.getElementById("pontos");
-        const btnTodosPontos = document.getElementById("btn-todos-pontos");
-        const formBuscarPonto = document.getElementById("form-buscar-ponto");
-        const inputIdPonto = document.getElementById("input-id-ponto");
-        const ulPonto = document.getElementById("ponto");
-
-        btnTodosPontos.addEventListener("click", () => {
-            fetch("http://localhost:3000/Pontos")
-                .then((response) => response.json())
-                .then((data) => {
-                    ulPontos.innerHTML = "";
-                    data.forEach((Ponto) => {
-                        const li = document.createElement("li");
-                        li.innerText = `ID: ${Ponto.id}
-                Funcionário: ${Ponto.funcionario}
-                Data: ${Ponto.dia}
-                Entrada: ${Ponto.entrada}
-                Saída: ${Ponto.saida}`;
-                        ulPontos.appendChild(li);
-                    });
-                })
-                .catch((error) => {
-                    console.error(error);
-                    ulPontos.innerHTML = "Erro ao carregar pontos.";
-                });
-        });
-
-        formBuscarPonto.addEventListener("submit", (event) => {
-            event.preventDefault();
-            const idPonto = inputIdPonto.value;
-            fetch(`http://localhost:3000/Ponto/${idPonto}`)
-                .then((response) => response.json())
-                .then((Ponto) => {
-                    if (Ponto.id) {
-                        ulPonto.innerHTML = `
-                <li>ID: ${Ponto.id}</li>
-                <li>Funcionário: ${Ponto.funcionario}</li>
-                <li>Data: ${Ponto.dia}</li>
-                <li>Entrada: ${Ponto.entrada}</li>
-                <li>Saída: ${Ponto.saida}</li>
-              `;
-                    } else {
-                        ulPonto.innerHTML = "Ponto não encontrado.";
-                    }
-                })
-                .catch((error) => {
-                    console.error(error);
-                    ulPonto.innerHTML = "Erro ao buscar ponto.";
-                });
-        });
-        const formInserirPonto = document.getElementById("form-inserir-ponto");
-        const inputFuncionario = document.getElementById("input-funcionario");
-        const inputDia = document.getElementById("input-dia");
-        const inputEntrada = document.getElementById("input-entrada");
-        const inputSaida = document.getElementById("input-saida");
-        const divMensagem = document.getElementById("mensagem");
-
-        formInserirPonto.addEventListener("submit", (event) => {
-            const funcionario = inputFuncionario.value;
-            const dia = inputDia.value;
-            const entrada = inputEntrada.value;
-            const saida = inputSaida.value;
-            const novoPonto = { funcionario, dia, entrada, saida };
-
-            fetch("http://localhost:3000/Ponto", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(novoPonto),
-            })
-
-        })
     
 
-
-    </script> -->
 </body>
-
+<script src="./script.js"></script>
 </html>
+

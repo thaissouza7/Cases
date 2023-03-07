@@ -1,42 +1,87 @@
-*{
+* {
     padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+    margin: 0 ;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-body{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-.listaDePonto{
+body {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    border: solid 2px black;
-    margin: 10px;
-    width: 15rem;
-    text-align: center;
+    height: auto;
 }
 
-.buscarPonto{
+header{
+    color: purple;
+    background-color: #333332;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+    font-size: 35px;
+    font-weight: bold;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+   padding-left: 100px;
+    height: 10vh;
+    width: 100%;
+}
+header img{
+   width: 70px;
+    height: 10vh;
+}
+header h1{
+    margin-left: 20px;
+}
+.containerPai {
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+
+}
+
+.listaDePonto {
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: auto;
+    margin: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+ul {
+    list-style: none;
+    text-align: start;
+    align-content: center;
+}
+
+li {
+    background-color: rgb(216, 216, 216);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+
+.buscarPonto {
     display: flex;
     flex-direction: column;
     text-align: center;
-    justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
-    border: solid 2px black;
-    margin: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   
     width: 15rem;
+    height: max-content;
+
+
+    margin: 10px;
+
+
 }
 
-input{
+input {
     text-align: center;
     margin: 6px;
     width: 200px;
@@ -45,27 +90,30 @@ input{
     border: 1px solid;
 }
 
-.inserirPonto{
+.inserirPonto {
     display: flex;
     text-align: center;
     flex-direction: column;
     flex-wrap: wrap;
-    border: solid 2px black;
+    border-radius: 10px;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     margin: 10px;
     width: 15rem;
+    height: max-content;
 }
 
-.formInserir{
+.formInserir {
     display: inline-block;
     position: relative;
 }
 
-.form-buscar-ponto{
+.form-buscar-ponto {
     display: inline-block;
     position: relative;
 }
 
-button{
+button {
     margin-bottom: 6px;
     border-radius: 50px;
     width: 90px;
@@ -75,6 +123,38 @@ button{
     color: white;
 }
 
-button:hover{
+button:hover {
     background-color: black;
+}
+
+.atualizarPonto {
+    margin: 10px;
+    height: max-content;
+    border-radius: 10px;
+    border-radius: 10px;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.formAtualizar,
+.formExcluir {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.excluirPonto {
+    margin: 10px;
+    height: max-content;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    display: flex;
+    flex-direction: column;
 }
