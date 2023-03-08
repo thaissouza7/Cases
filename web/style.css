@@ -31,54 +31,92 @@ header img{
 header h1{
     margin-left: 20px;
 }
-.containerPai {
-    width: 100%;
-    margin-top: 50px;
-    display: flex;
 
+.containerAll{
+    width: 100%;
+    display: flex;
+}
+.containerPai {
+    background-color: rgb(242, 241, 243);
+    width: 47%;
+    padding: 1rem;
+    margin-top: 50px;
+    margin-bottom: 2rem;
+    margin-right: 2rem;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+
+    flex-wrap: wrap;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.containerBox{
+    padding: 5px;
+    
+    width: auto;
+    margin-right: 3rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
 }
 
 .listaDePonto {
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     width: auto;
-    margin: 10px;
-
+    margin-top: 3rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 
 }
 
+.list{
+    font-size: 2rem;
+    font-family:sans-serif;
+}
+h1{
+    font-size: 18px;
+}
+
+ul .pontos{
+    display: flex;
+    flex-direction: row;
+}
+
 ul {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
     list-style: none;
     text-align: start;
     align-content: center;
+   
 }
 
 li {
-    background-color: rgb(216, 216, 216);
+    background-color: rgb(208, 221, 233);
     padding: 5px;
     margin: 5px;
     border-radius: 10px;
 }
 
-
+.getDelete{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    border: 1px solid black;
+}
 .buscarPonto {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     text-align: center;
-    flex-wrap: wrap;
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-   
-    width: 15rem;
+    border-radius: 5px;
+    width: 25rem;
+    padding: 5px;
     height: max-content;
-
-
-    margin: 10px;
-
-
 }
 
 input {
@@ -86,18 +124,23 @@ input {
     margin: 6px;
     width: 200px;
     height: 30px;
-    border-radius: 50px;
+    border-radius: 16px;
     border: 1px solid;
 }
-
+.upPut{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    justify-items: center;
+    margin: 2rem;
+    border: 1px solid black;
+}
 .inserirPonto {
     display: flex;
     text-align: center;
     flex-direction: column;
     flex-wrap: wrap;
     border-radius: 10px;
-
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     margin: 10px;
     width: 15rem;
     height: max-content;
@@ -109,10 +152,16 @@ input {
 }
 
 .form-buscar-ponto {
+    display: flex;
+    flex-direction: column;
     display: inline-block;
     position: relative;
 }
 
+.twoBox{
+    display: flex;
+    flex-direction: row;
+}
 button {
     margin-bottom: 6px;
     border-radius: 50px;
@@ -128,21 +177,19 @@ button:hover {
 }
 
 .atualizarPonto {
-    margin: 10px;
+    margin-top: 8px;
+    margin-right: 20px;
     height: max-content;
     border-radius: 10px;
-    border-radius: 10px;
-
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
+    display: grid;
+    grid-template-columns: 200px;
+}
+.formAtualizar{
     display: flex;
     flex-direction: column;
-
+    align-items: center;
 }
-
-.formAtualizar,
 .formExcluir {
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -150,11 +197,57 @@ button:hover {
 }
 
 .excluirPonto {
-    margin: 10px;
-    height: max-content;
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
     display: flex;
     flex-direction: column;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    height: max-content;
+}
+
+footer {
+    background: #333332;
+    width: auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.text1 {
+    width: auto;
+    height: 109px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    float: right;
+}
+
+footer p {
+    color: white;
+}
+
+footer ul p {
+    color: white;
+    padding: 5px 30px;
+}
+
+footer ul p:hover {
+    color: purple;
+    transition: .4s;
+}
+
+footer ul p:hover,
+p:link,
+p:active,
+p:visited {
+    text-decoration: none;
+}
+.logoFooter img{
+    width: 100px;
+    height: 100%;
 }
