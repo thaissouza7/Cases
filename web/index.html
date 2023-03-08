@@ -19,108 +19,120 @@
 
 
 
-<main>
-    <!-- Lista de ponto -->
+    <main>
+        <!-- Lista de ponto -->
 
-    <section class="containerAll">
-        <div class="containerBox">
-            <div class="boxLista">
-                <div class="listaDePonto">
-                    <h1 class="list">Lista de Ponto</h1>
-                    <button class="btnShow" id="btn-todos-pontos">Mostrar</button>
-                </div>
-                <div class="pontosFunc">
-                    <ul id="pontos">
-                        <li>Carregando...</li>
-                    </ul>
+        <section class="containerAll">
+            <div class="containerBox">
+                <div class="boxLista">
+                    <div class="listaDePonto">
+                        <h1 class="list">Lista de Ponto</h1>
+                        <button class="btnShow" onclick="sumir()" id="btn-todos-pontos">Mostrar</button>
+                        <div class="pontosFunc">
+                            <div class="containerLoading" id="containerMain">
+                                <p class="loading">Carregando...</p>
+                            </div>
+                            <ul id="pontos">
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </div>
 
 
-        <!-- Buscar ponto -->
-        <div class="containerPai">
+            <!-- Buscar ponto -->
+            <div class="containerPai">
+                
+                <div class="getDelete">
 
-            <div class="getDelete">
-                <div class="buscarPonto">
-                    <form id="form-buscar-ponto">
-                        <label for="input-id-ponto">ID do ponto:</label>
-                        <input type="text" id="input-id-ponto" name="id-ponto" />
-                        <button type="submit">Buscar</button>
-                    </form>
-                    <ul id="ponto">
+                    <div class="buscarPonto">
+                        <form id="form-buscar-ponto">
+                            <label for="input-id-ponto">ID do ponto:</label>
+                            <input type="text" id="input-id-ponto" name="id-ponto" />
+                            <button type="submit">Buscar</button>
+                        </form>
+                    </div>
+                    <div class="excluirPonto">
+                        <h1>Excluir</h1>
+                        <div class="form">
+                            <form class="formExcluir" id="form-excluir-ponto">
+                                <input type="number" id="input-id-ponto-excluir" name="id-ponto-excluir" placeholder="" />
+                                <button type="submit">Excluir</button>
+                            </form>
+                        </div>
+                        <div id="mensagem-excluir"></div>
+                    </div>
+                </div>
+                <div class="containerIdSelec">
+                    <ul id="ponto" class="ulTest">
                         <li>Insira o ID do ponto ao lado e clique em buscar".</li>
                     </ul>
                 </div>
-                <div class="excluirPonto">
-                    <h1>Excluir</h1>
-                    <div class="form">
-                        <form class="formExcluir" id="form-excluir-ponto">
-                            <input type="number" id="input-id-ponto-excluir" name="id-ponto-excluir" />
-                            <button type="submit">Excluir</button>
-                        </form>
+                <!-- Inserir ponto -->
+                <div class="upPut">
+                    <div class="inserirPonto">
+
+                        <div class="form">
+                            <h1>Inserir</h1>
+                            <form class="formInserir" id="form-inserir-ponto">
+                                <input type="text" id="input-funcionario" name="funcionario"
+                                    placeholder="Funcionario" />
+                                <br>
+                                <input type="text" id="input-dia" name="dia" placeholder="Dia" />
+                                <br>
+                                <input type="text" id="input-entrada" name="entrada" placeholder="Entrada" />
+                                <br>
+                                <input type="text" id="input-saida" name="saida" placeholder="Saida" />
+                                <br>
+                                <button type="submit">Inserir</button>
+                            </form>
+                        </div>
+                        <div id="mensagem"></div>
                     </div>
-                    <div id="mensagem-excluir"></div>
-                </div>
-            </div>
-        
-        <!-- Inserir ponto -->
-        <div class="upPut">
-            <div class="inserirPonto">
-                
-                <div class="form">
-                    <h1>Inserir</h1>
-                    <form class="formInserir" id="form-inserir-ponto">
-                        <input type="text" id="input-funcionario" name="funcionario" placeholder="Funcionario" />
-                        <br>
-                        <input type="text" id="input-dia" name="dia" placeholder="Dia" />
-                        <br>
-                        <input type="text" id="input-entrada" name="entrada" placeholder="Entrada" />
-                        <br>
-                        <input type="text" id="input-saida" name="saida" placeholder="Saida" />
-                        <br>
-                        <button type="submit">Inserir</button>
-                    </form>
-                </div>
-                <div id="mensagem"></div>
-            </div>
 
-            <!-- Atualizar ponto -->
-            <div class="atualizarPonto">
-                <div class="form">
-                   
-                    <form class="formAtualizar" id="form-atualizar-ponto">
-                       <h1>Atualizar</h1> 
-                        <input type="number" id="input-id-ponto-atualizar" name="id-ponto-atualizar" />
-                        <input type="text" id="input-funcionario-atualizar" name="funcionario-atualizar"
-                            placeholder="Funcionario" />
-                        <input type="text" id="input-dia-atualizar" name="dia-atualizar" placeholder="Dia" />                
-                        <input type="text" id="input-entrada-atualizar" name="entrada-atualizar"
-                            placeholder="Entrada" />  
-                        <input type="text" id="input-saida-atualizar" name="saida-atualizar" placeholder="Saida" />                       
-                        <button type="submit">Atualizar</button>
-                        <div id="mensagem-atualizar"></div>
-                    </form>
+                    <!-- Atualizar ponto -->
+                    <div class="atualizarPonto">
+                        <div class="form">
+
+                            <form class="formAtualizar" id="form-atualizar-ponto">
+                                <h1>Atualizar</h1>
+                                <input type="number" id="input-id-ponto-atualizar" name="id-ponto-atualizar" />
+                                <input type="text" id="input-funcionario-atualizar" name="funcionario-atualizar"
+                                    placeholder="Funcionario" />
+                                <input type="text" id="input-dia-atualizar" name="dia-atualizar" placeholder="Dia" />
+                                <input type="text" id="input-entrada-atualizar" name="entrada-atualizar"
+                                    placeholder="Entrada" />
+                                <input type="text" id="input-saida-atualizar" name="saida-atualizar"
+                                    placeholder="Saida" />
+                                <button type="submit">Atualizar</button>
+                                <div id="mensagem-atualizar"></div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div>
+            <ul class="text1">
+                <p href="quemsomos.html">QUEM SOMOS</p>
+                <p href="cardapio.html">PRODUTOS</p>
+                <p href="contato.html">CONTATOS</p><br></br>
+                <p href="#" target="_blank">TRABALHE CONOSCO</>
+                <p>POLITICA DE PRIVACIDADE</p>
+            </ul>
         </div>
-        </div>
-    </div>
-    </section>
-
-</main>
-
-<footer>
-    <div>
-        <ul class="text1">
-            <p href="quemsomos.html">QUEM SOMOS</p>
-            <p href="cardapio.html">PRODUTOS</p>
-            <p href="contato.html">CONTATOS</p><br></br>
-            <p href="#" target="_blank">TRABALHE CONOSCO</>
-            <p>POLITICA DE PRIVACIDADE</p>
-        </ul>
-    </div>
-</footer>
+    </footer>
+    <script>
+        function sumir(){
+            document.getElementById('containerMain').style.display = 'none'
+        }
+    </script>
 </body>
 <script src="./script.js"></script>
 
